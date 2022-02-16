@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.study2.mywebbrowser">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+<!--        http 사이트에대한 접근을 불허하는 정책을 회피하는 설정 android:usesCleartextTraffic="true"-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyWebBrowser"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    
+<!--        안드로이드30 이상 암시적인텐트 사용이 제한됩니다.이를 패키지 가시성이라고하며 전화 이메일
+기능이 동작하려면 앱에서 해당 암시적 인텐트를 사용하낟고 알려주는 패키지 가시성 설정을 해줘야 합니다-->
+        <queries>
+            <intent>
+                <action android:name="android.intent.action.DIAL"/>
+            </intent>
+
+            <intent>
+                <action android:name="android.intent.action.SENDTO"/>
+                <data android:scheme="*"/>
+            </intent>
+        </queries>
+
+</manifest>
